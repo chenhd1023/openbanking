@@ -1,59 +1,39 @@
-import yaml
 import json
 import base64
-#from ruamel.yaml import YAML
 import requests
 
 
-def test_get_access_token():
-    client_id = '2ph676ka96q2h7j163tienpbaa'
-    client_secret = '199jnnko86u604bgbfkhojqh0afv9s69pg2da79d5pbpkrp9aopf'
-    url = 'https://labrochure-test.auth.us-east-1.amazoncognito.com'
-    path = '/oauth2/token?grant_type=client_credentials&users/users.create'
-    headers = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': generate_authorization_header(client_id, client_secret),
-    }
-    #response = requests.post(url+path, headers=headers)
-    #print(response.json())
-    #assert 'access_token' in response.json()
-    #assert response.headers['Content-Type'] == "application/json"
-    #assert response.status_code == 200
-
-
-
 def main():
-    url = 'http://127.0.0.1:5000/test/oauth'
-    #myobj = {'somekey': 'somevalue'}
+    url='http://127.0.0.1:5000/'
 
-    x = requests.get(url)
-    #assert response.status_code == 200
-    #print(dir(x))
-    #print(type(x.text))
-    #print(type("success"))
+    #id_oauth_url = 'http://127.0.0.1:5000/test/oauth'
+
+    print('1.身份確認')
+    print('1.1.	TSP呼叫財金路徑並取得銀行驗證主機')
+    test_oauth = requests.get(url+"test/oauth")
+    print(test_oauth)
     
-    print('連線成功')
-        #print(type(x))
-    print('測試主機URL:',x.url)
+    print('1.2.	TSP呼叫銀行驗證主機')
+    oauth_authentication = requests.post(url+"oauth/authentication")
+    print(oauth_authentication)
 
-    y = requests.get(x.text.replace("\"", "").strip())
-
-    print('授權主機URL:',y.url)
-
-    print('授權呼叫授權主機成功:',y.url)
-
-    payload = {'username': 'username', 'password': 'password'}
-    z = requests.get(y.text.replace("\"", "").strip(), params=payload)
-
-
+    print('2.消費者認證')
+    print('2.1.	使用者輸入帳密')
+    identity_queryAPI = requests.get(url+"identity/queryAPI")
+    print(identity_queryAPI)
     
-    print('登入狀態:',z.text)
+    print('2.2.	使用者確認授權範圍')
+    get_authorization_code = requests.get(url+"identity/queryAPI?code=QDPsc0")
+    print(get_authorization_code)
 
-    
+    print('3.授權/存取授權')
+    print('3.1.	利用authorization code取得access token')
+    oauth_token = requests.post(url+"oauth/token")
+    print(oauth_token)
 
-    
-    
-
+    print('3.2.利用access token取得消費者資料')
+    user_testdata = requests.get(url+"user/testdata")
+    print(user_testdata)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QueryAPI</title>
+<style>
+table {
+	width: 80%;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 15px;
+	text-align: left;
+	max-width: 150px;
+	word-wrap: break-word;
+}
+
+table#t01 tr:nth-child(even) {
+	background-color: #eee;
+}
+
+table#t01 tr:nth-child(odd) {
+	background-color: #fff;
+}
+
+table#t01 th {
+	background-color: black;
+	color: white;
+}
+a
+</style>
+</head>
+<body>
+	<div class="container">
+		<table id="t01">
+			<tr>
+				<th>授權碼</th>
+				<th>取得token</th>
+				<th>取得Sign Block</th>
+			</tr>
+			<tr>
+				<td><span>QDPsc0</span></td>
+				<td><span>bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJub2RlIjoidHNtcHBvYzMiLCJhdWQiOlsiWVdSdGFXNUJVRWsiXSwic2NvcGUiOlsiMjE3MSJdLCJleHAiOjE1ODkxNjk5NzMsImF1dGhvcml0aWVzIjpbImNsaWVudCJdLCJqdGkiOiI4M2VlYTY2OS1hM2YwLTQ0OTgtYTM1Zi04NTJjNjY2YjRlZTAiLCJjbGllbnRfaWQiOiJjaGJ1c2VyIn0.Snt-cTMFY0-jcG1WQ1Ec4us6BSLxUe6V0gMjofCRTgULT48lWFVFQDhPBkp_bU8G9AKQRxpJFGVHo5Vj5hmPMuvuzex1RSl1reprX4qxJXjGaYhbX0STjVifXXrbkf7lut25L8epurn-WLqTTnBKQSCO_LbP1Li7NvmE2ZEMPmh27Sjso_TaejPaAaiJfqZd_KP9yJp3Jnd_nGDnVHtZdF62K9r4dXMF71Fkoi4n-g9zwJG9D5DpeFfLqVVRb01MmNznrG7L3Y6tAxl7ofjc8obuDcIsXanf_qhHTnSoPFQKxxoreDNhxWvWqPwp8womB6lAOCIw8dKoxpgIc6i1jg</span></td>
+				<td><span>DzANBgNVBAgTBnRhaXdhbjEPMA0GA1UEBxMGdGFpcGVpMRMwEQYDVQQKEwp0aGlu</span></td>
+			</tr>
+		</table>
+		<!-- <span th:text="'取得授權碼:  ' + ${code}"></span> <br> -->
+<!-- 		<span th:text="'取得token:  ' + ${token}"></span> <br> -->
+<!-- 		<span th:text="'取得Sign Block:  ' + ${signBlock}"></span> -->
+
+		<!--         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+
+	</div>
+	<!-- /container -->
+</body>
+</html>

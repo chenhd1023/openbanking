@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <p>User Authorization Code</p>
+    <form class="form-signin" action="../login" method="post">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="ib" class="sr-only">身分證字號</label>
+        <input type="input" id="ib" name="ib" class="form-control" placeholder="身分證字號" /><br />
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" />
+        <!--  避免csrf攻擊 為必要欄位      -->
+        <input type="hidden"  name="_csrf" value="89087fa6-b757-4b01-b8d8-3066a071ccf8" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+
+</div> <!-- /container -->
+</body>
+</html>
